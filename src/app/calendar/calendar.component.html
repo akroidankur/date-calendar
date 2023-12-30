@@ -1,8 +1,10 @@
 <section>
     <header>
-        <div class="date"> {{ currentDate }} </div>
         <div class="month"> {{ monthNames[currentMonth] }} </div>
-        <div class="year">{{currentYear}}</div>
+        <div class="date-year">
+            <div class="date"> {{ currentDate }} </div>
+            <div class="year">{{currentYear}}</div>
+        </div>
     </header>
 
     <div class="calendar-body">

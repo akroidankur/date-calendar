@@ -9,6 +9,7 @@ import { Subject, interval, takeUntil } from 'rxjs';
   styleUrl: './time.component.scss'
 })
 export class TimeComponent {
+  numbers: Array<string> = ['12', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11']
   hoursHand: number = 0;
   minutesHand: number = 0;
   secondsHand: number = 0;

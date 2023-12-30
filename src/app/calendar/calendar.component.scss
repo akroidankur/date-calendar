@@ -17,16 +17,24 @@ section {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        font-size: 1.8rem;
+        font-size: 2rem;
         font-weight: 600;
-        padding: 10px;
 
         .date, .month, .year{
             font-family: 'Poiret One', sans-serif;
         }
 
-        .month{
-            color: #e91e63;
+        .date-year{
+            font-size: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .date{
+                color: #e91e63;
+                font-size: 4.5rem;
+            }
         }
     }
 

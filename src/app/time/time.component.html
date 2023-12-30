@@ -13,10 +13,18 @@
 </section>
 
 <div class="analog-clock">
-    <div class="circle" id="sec" style="--clr: #388e3c" [style.transform]="'rotateZ(' + secondsHand + 'deg)'"><i></i>
+    <div class="circle" id="sec" style="--clr: #29aa2f" [style.transform]="'rotateZ(' + secondsHand + 'deg)'"><i></i>
     </div>
     <div class="circle" id="min" style="--clr: #1976d2" [style.transform]="'rotateZ(' + minutesHand + 'deg)'"><i></i>
     </div>
     <div class="circle" id="hrs" style="--clr: #5d4037" [style.transform]="'rotateZ(' + hoursHand + 'deg)'"><i></i>
     </div>
+
+    <div class="akroid">
+        <img src="../../assets/akroid-b.png" alt="" srcset="">
+    </div>
+
+    @for (number of numbers; track $index) {
+        <span style="--i: {{$index}};"><i>{{number}}</i></span>
+    }
 </div>

@@ -4,7 +4,7 @@ section {
     bottom: 2%;
     transform: translateY(-1%);
     width: 55%;
-    height: 40vh;
+    height: 45vh;
     font-weight: 600;
     background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(4px);
@@ -13,18 +13,22 @@ section {
     border: 1px solid rgba(255, 255, 255, 0.18);
 
     .digital-clock {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
 
         .hm {
-            width: 70%;
+            width: 80%;
             height: 100%;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
+            overflow: hidden;
 
             div {
                 font-size: 5rem;
@@ -33,13 +37,13 @@ section {
         }
 
         .sap {
-            width: 30%;
+            width: 20%;
             height: 100%;
 
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
+            align-items: flex-end;
 
             div {
                 font-size: 3rem;
@@ -70,17 +74,46 @@ section {
 
 .analog-clock {
     position: fixed;
-    right: 3%;
-    top: 5%;
-    transform: translateY(-5%);
-    width: 120px;
-    height: 120px;
+    right: 2%;
+    top: 8%;
+    transform: translateY(-8%);
+    width: 150px;
+    height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
     background: rgb(255, 255, 255);
     border-radius: 50%;
     border: 10px solid #e91e63;
+
+    .akroid{
+        width: 80px;
+        height: 80px;
+        z-index: -10;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.2;
+        }
+    }
+}
+
+.analog-clock span {
+    position: absolute;
+    inset: 1px;
+    text-align: center;
+    color: #000;
+    font-size: 0.6rem;
+    transform: rotate(calc(30deg * var(--i)));
+}
+
+.analog-clock span i {
+    font-family: 'Poiret One', sans-serif;
+    font-weight: 600;
+    display: inline-block;
+    transform: rotate(calc(-30deg * var(--i)));
 }
 
 .analog-clock::before {
@@ -112,16 +145,15 @@ section {
     width: 5px;
     height: 50%;
     background: var(--clr);
-    opacity: 0.75;
     transform-origin: bottom;
 }
 
 .analog-clock .circle#sec i {
-    width: 1px;
+    width: 3px;
 }
 
 .analog-clock .circle#min i {
-    width: 3px;
+    width: 5px;
 }
 
 .analog-clock .circle#min {
