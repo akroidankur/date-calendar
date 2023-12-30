@@ -1,0 +1,26 @@
+<section>
+    <header>
+        <div class="date"> {{ currentDate }} </div>
+        <div class="month"> {{ monthNames[currentMonth] }} </div>
+        <div class="year">{{currentYear}}</div>
+    </header>
+
+    <div class="calendar-body">
+        <div class="calendar-week">
+            @for (day of days; track $index) {
+            <div class="days">{{day | titlecase}}</div>
+            }
+        </div>
+
+        <div class="calendar-days">
+            @for (day of calendarDays; track $index) {
+            @if (day) {
+            <div class="dates" [ngClass]="{'active-date': day === currentDate}">{{day}}</div>
+            }
+            @else {
+            <div class="dates"></div>
+            }
+            }
+        </div>
+    </div>
+</section>

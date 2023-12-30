@@ -1,0 +1,5 @@
+<section>
+    @for (image of images; track $index) {
+    <img [src]="image" alt="Image {{$index}}" [hidden]="currentIndex !== $index">
+    }
+</section>

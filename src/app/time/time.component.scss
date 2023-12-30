@@ -1,0 +1,149 @@
+section {
+    position: absolute;
+    right: 1%;
+    bottom: 2%;
+    transform: translateY(-1%);
+    width: 55%;
+    height: 40vh;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    .digital-clock {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .hm {
+            width: 70%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            div {
+                font-size: 5rem;
+                font-family: 'Poiret One', sans-serif;
+            }
+        }
+
+        .sap {
+            width: 30%;
+            height: 100%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            div {
+                font-size: 3rem;
+                font-family: 'Poiret One', sans-serif;
+                color: #e91e63;
+            }
+
+            div:last-of-type {
+                animation: animate 1s ease-in-out 0s infinite alternate;
+            }
+        }
+    }
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.analog-clock {
+    position: fixed;
+    right: 3%;
+    top: 5%;
+    transform: translateY(-5%);
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    border-radius: 50%;
+    border: 10px solid #e91e63;
+}
+
+.analog-clock::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: #e91e63;
+    z-index: 100000;
+    box-shadow: 0 0 0 1px #e91e63,
+        0 0 0 3px #ffffff,
+        0 0 5px 5px rgba(0, 0, 0, 0.15)
+}
+
+.analog-clock .circle {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 10;
+}
+
+.analog-clock .circle i {
+    position: absolute;
+    width: 5px;
+    height: 50%;
+    background: var(--clr);
+    opacity: 0.75;
+    transform-origin: bottom;
+}
+
+.analog-clock .circle#sec i {
+    width: 1px;
+}
+
+.analog-clock .circle#min i {
+    width: 3px;
+}
+
+.analog-clock .circle#min {
+    width: 60px;
+    height: 60px;
+}
+
+.analog-clock .circle#hrs {
+    width: 40px;
+    height: 40px;
+}
+
+.analog-clock .circle::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 5px;
+    background: var(--clr);
+    border-radius: 50%;
+    box-shadow: 0 0 20px var(--clr),
+        0 0 60px var(--clr);
+}

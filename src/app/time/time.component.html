@@ -1,0 +1,22 @@
+<section>
+    <div class="digital-clock">
+        <div class="hm">
+            <div>{{hours}}</div>
+            <div>:</div>
+            <div>{{minutes}}</div>
+        </div>
+        <div class="sap">
+            <div>{{seconds}}</div>
+            <div>{{ampm}}</div>
+        </div>
+    </div>
+</section>
+
+<div class="analog-clock">
+    <div class="circle" id="sec" style="--clr: #388e3c" [style.transform]="'rotateZ(' + secondsHand + 'deg)'"><i></i>
+    </div>
+    <div class="circle" id="min" style="--clr: #1976d2" [style.transform]="'rotateZ(' + minutesHand + 'deg)'"><i></i>
+    </div>
+    <div class="circle" id="hrs" style="--clr: #5d4037" [style.transform]="'rotateZ(' + hoursHand + 'deg)'"><i></i>
+    </div>
+</div>
