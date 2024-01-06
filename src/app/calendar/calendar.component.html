@@ -1,6 +1,9 @@
 <section>
     <header>
-        <div class="month"> {{ monthNames[currentMonth] }} </div>
+        <div class="day-month">
+            <div class="month">{{ getMonthThreeLetters(monthNames[currentMonth]) }} </div>
+            <div class="day">{{ getMonthThreeLetters(days[currentDay]) | titlecase }} </div>
+        </div>
         <div class="date-year">
             <div class="date"> {{ currentDate }} </div>
             <div class="year">{{currentYear}}</div>

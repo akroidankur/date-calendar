@@ -10,23 +10,16 @@ import { Subject, interval, takeUntil } from 'rxjs';
   styleUrl: './image-slider.component.scss'
 })
 export class ImageSliderComponent {
-  images: Array<String> = [
-    '../../assets/1.jpg',
-    '../../assets/2.jpg',
-    '../../assets/3.jpg',
-    '../../assets/4.jpg',
-    '../../assets/5.jpg',
-    '../../assets/6.jpg',
-    '../../assets/7.jpg',
-    '../../assets/8.jpg',
-    '../../assets/9.jpg',
-    '../../assets/10.jpg',
-  ];
+  images: Array<String> = [];
+  currentIndex: number = 0;
 
-  currentIndex = 0;
+  private imagePathPrefix: string = '../../assets/'
+  private imagePathSuffix: string = '.jpg'
+
   private destroy$ = new Subject<void>();
 
   ngOnInit() {
+    this.updateImagePath();
     interval(3000)
       .pipe(
         takeUntil(this.destroy$)
@@ -36,9 +29,13 @@ export class ImageSliderComponent {
       });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void{
     this.destroy$.next();
     this.destroy$.complete();
+  }
+
+  updateImagePath(): void {
+    this.images = Array.from({ length: 20 }, (_, i) => `${this.imagePathPrefix}${i + 1}${this.imagePathSuffix}`);
   }
 
 }

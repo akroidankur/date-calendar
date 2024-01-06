@@ -15,9 +15,10 @@ export class CalendarComponent {
   calendarDays: Array<number> = []
 
   newDate: Date = new Date();
-  currentDate: number = this.newDate.getDate();
-  currentMonth: number = this.newDate.getMonth();
-  currentYear: number = this.newDate.getFullYear();
+  currentDay: number = 0;
+  currentDate: number = 0;
+  currentMonth: number = 0;
+  currentYear: number = 0;
 
   private destroy$ = new Subject<void>();
 
@@ -34,6 +35,7 @@ export class CalendarComponent {
 
   updateCurrentDate(): void {
     this.newDate = new Date();
+    this.currentDay = this.newDate.getDay();
     this.currentDate = this.newDate.getDate();
     this.currentMonth = this.newDate.getMonth();
     this.currentYear = this.newDate.getFullYear();
@@ -46,6 +48,10 @@ export class CalendarComponent {
 
   getFebDays(year: number): number {
     return this.isLeapYear(year) ? 29 : 28;
+  }
+
+  getMonthThreeLetters(month: string): string{
+    return month.substring(0, 3);
   }
 
   generateCalendar(month: number, year: number): number[] {
